@@ -167,19 +167,19 @@ function startTimer(time){
         if(time < 0){
             clearInterval(counter);
             timeText.textContent = "Time's Up!";
-            const allOptions = option_list.children.length; //getting all option items
-            let correcAns = questions[que_count].answer; //getting correct answer from array
+            const allOptions = option_list.children.length;
+            let correcAns = questions[que_count].answer;
             for(i=0; i < allOptions; i++){
-                if(option_list.children[i].textContent == correcAns){ //if there is an option which is matched to an array answer
-                    option_list.children[i].setAttribute("class", "option correct"); //adding green color to matched option
-                    option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to matched option
-                    console.log("Time Off: Auto selected correct answer.");
+                if(option_list.children[i].textContent == correcAns){
+                    option_list.children[i].setAttribute("class", "option correct");
+                    option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag);
+                    console.log("Time's Up!: Auto selected correct answer.");
                 }
             }
             for(i=0; i < allOptions; i++){
-                option_list.children[i].classList.add("disabled"); //once user select an option then disabled all options
+                option_list.children[i].classList.add("disabled");
             }
-            next_btn.classList.add("show"); //show the next button if user selected any option
+            next_btn.classList.add("show");
         }
     }
 }
@@ -187,24 +187,22 @@ function startTimer(time){
 function startTimerLine(time){
     counterLine = setInterval(timer, 29);
     function timer(){
-        time += 1; //upgrading time value with 1
-        time_line.style.width = time + "px"; //increasing width of time_line with px by time value
-        if(time > 549){ //if time value is greater than 549
-            clearInterval(counterLine); //clear counterLine
+        time += 1;
+        time_line.style.width = time + "px";
+        if(time > 549){
+            clearInterval(counterLine);
         }
     }
 }
 
 function queCounter(index){
-    //creating a new span tag and passing the question number and total question
     let totalQueCounTag = '<span><p>'+ index +'</p> of <p>'+ questions.length +'</p> Questions</span>';
-    bottom_ques_counter.innerHTML = totalQueCounTag;  //adding new span tag inside bottom_ques_counter
+    bottom_ques_counter.innerHTML = totalQueCounTag;
 }
-// creating an array and passing the number, questions, options, and answers
 let questions = [
     {
     numb: 1,
-    question: "Commonly used data types do NOT include?",
+    question: "Commonly used data types do NOT include _____.",
     answer: "Alerts",
     options: [
       "Strings",
@@ -215,60 +213,46 @@ let questions = [
   },
     {
     numb: 2,
-    question: "What does CSS stand for?",
-    answer: "Cascading Style Sheet",
+    question: "The condition in an If/Else statement is enclosed with what?",
+    answer: "Parentheses",
     options: [
-      "Common Style Sheet",
-      "Colorful Style Sheet",
-      "Computer Style Sheet",
-      "Cascading Style Sheet"
+      "Square Brackets",
+      "Curly Brackets",
+      "Enclosers",
+      "Parentheses"
     ]
   },
     {
     numb: 3,
-    question: "What does PHP stand for?",
-    answer: "Hypertext Preprocessor",
+    question: "String values must be enclosed with ______?",
+    answer: "Quotation Marks",
     options: [
-      "Hypertext Preprocessor",
-      "Hypertext Programming",
-      "Hypertext Preprogramming",
-      "Hometext Preprocessor"
+      "Quotation Marks",
+      "Square Brackets",
+      "Triple Ampersands",
+      "Asterisks"
     ]
   },
     {
     numb: 4,
-    question: "What does SQL stand for?",
-    answer: "Structured Query Language",
+    question: "A very useful tool during development and debugging for printing content to the debugger",
+    answer: "console.log",
     options: [
-      "Stylish Question Language",
-      "Stylesheet Query Language",
-      "Statement Question Language",
-      "Structured Query Language"
+      "Javascript",
+      "for loops",
+      "terminal/git bash",
+      "console.log"
     ]
   },
     {
     numb: 5,
-    question: "What does XML stand for?",
-    answer: "eXtensible Markup Language",
+    question: "Arrays in Javascript can be used to store ____",
+    answer: "All of the below",
     options: [
-      "eXtensible Markup Language",
-      "eXecutable Multiple Language",
-      "eXTra Multi-Program Language",
-      "eXamine Multiple Language"
+      "All of the below",
+      "numbers & strings",
+      "other arrays",
+      "booleans"
     ]
-  },
-  // you can uncomment the below codes and make duplicate as more as you want to add question
-  // but remember you need to give the numb value serialize like 1,2,3,5,6,7,8,9.....
-
-  //   {
-  //   numb: 6,
-  //   question: "Your Question is Here",
-  //   answer: "Correct answer of the question is here",
-  //   options: [
-  //     "Option 1",
-  //     "option 2",
-  //     "option 3",
-  //     "option 4"
-  //   ]
-  // },
-];
+  },]
+  
